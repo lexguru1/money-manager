@@ -11,6 +11,26 @@ export default function reducer(state = initialState, action) {
         amount: state.amount + action.payload,
       };
     }
+    case "balance/depositCustom": {
+      return {
+        ...state,
+        amount: state.amount + action.payload,
+      };
+    }
+    case "balance/withdraw": {
+      return {
+        ...state,
+        amount: state.amount - action.payload,
+      };
+    }
+
+    case "balance/reset": {
+      return {
+        ...state,
+        amount: 0,
+      };
+    }
+
     default: {
       return state;
     }
