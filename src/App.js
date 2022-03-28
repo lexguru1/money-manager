@@ -1,8 +1,11 @@
 // import "./App.css";
 
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { deposit } from "./store/balance/actions";
 
 function App() {
+  const dispatch = useDispatch();
   const [balance, setBalance] = useState(0);
 
   return (
@@ -10,7 +13,7 @@ function App() {
       <p>Balance: {balance}$</p>
       <button
         onClick={() => {
-          setBalance(balance + 10);
+          dispatch(deposit(10));
         }}
       >
         Deposit 10$
